@@ -4,13 +4,14 @@ import { FlexWrapper } from "../../components/FlexWrapper";
 import { Project } from "./Project";
 import Man from "../../assets/img/man1.webp";
 import styled from "styled-components";
+import { theme } from "../../styles/Theme";
 
 export const Projects = () => {
   return (
     <SectionProject>
       <SectionTitle title="Projects" subtitle="Things I’ve built so far" />
 
-      <FlexWrapper justifyContent="space-between" flexWrap="wrap">
+      <FlexWrapper gap="50px" justifyContent="center" flexWrap="wrap">
         <Project
           imageUrl={Man}
           title="Project 1"
@@ -36,4 +37,8 @@ export const Projects = () => {
 
 const SectionProject = styled.section`
   margin-bottom: 150px;
+
+  @media ${theme.media.mobile} {
+    margin-bottom: 100px;
+  }
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FlexWrapper } from "../components/FlexWrapper";
+import { theme } from "../styles/Theme";
 
 export const Mail = () => {
   return (
@@ -15,7 +16,11 @@ export const Mail = () => {
 };
 
 const SectionMail = styled.section`
-    margin-bottom: 150px;
+  margin-bottom: 150px;
+
+  @media ${theme.media.mobile} {
+    margin-bottom: 100px;
+  }
 `;
 
 const MailTitle = styled.h2`
@@ -24,6 +29,10 @@ const MailTitle = styled.h2`
   line-height: 70px;
   max-width: 960px;
   text-align: center;
+
+  @media ${theme.media.mobile} {
+    font-size: 10vw;
+  }
 `;
 
 const StyledSpan = styled.span`

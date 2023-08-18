@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../styles/Theme";
 
 type SectionTitleType = {
   title: string;
@@ -27,9 +28,17 @@ const StyledTitle = styled.h2`
   font-size: 48px;
   font-weight: bold;
   color: #ccc;
+
+  @media ${theme.media.mobile} {
+    font-size: 40px;
+  }
 `;
 
 const StyledSubtitle = styled.span`
   font-size: 32px;
   color: #a7a7a7;
+  
+  @media ${theme.media.mobile} {
+    font-size: 25px;
+  }
 `;

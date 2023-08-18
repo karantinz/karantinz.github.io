@@ -2,6 +2,7 @@ import React from "react";
 import { FlexWrapper } from "../components/FlexWrapper";
 import Man from "../assets/img/man1.webp";
 import styled from "styled-components";
+import { theme } from "../styles/Theme";
 
 export const Hero = () => {
   return (
@@ -20,7 +21,6 @@ export const Hero = () => {
 
         <ImageContainer>
           <Images src={Man} alt="" />
-          <BorderImage />
         </ImageContainer>
       </FlexWrapper>
     </SectionHero>
@@ -29,25 +29,43 @@ export const Hero = () => {
 
 const SectionHero = styled.section`
   margin-bottom: 150px;
+
+  @media ${theme.media.tablet} {
+    & > ${FlexWrapper} {
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+  }
+
+  @media ${theme.media.mobile} {
+    margin-bottom: 100px;
+  }
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-`;
 
-const BorderImage = styled.div`
-  position: absolute;
-  top: -8px;
-  right: -6px;
-  background: linear-gradient(270deg, #13adc7 0%, #6978d1 66.67%, #945dd6 100%);
-  border-radius: 50px 0;
-  width: 394px;
-  height: 465px;
-  z-index: -1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    background: linear-gradient(
+      270deg,
+      #13adc7 0%,
+      #6978d1 66.67%,
+      #945dd6 100%
+    );
+    border-radius: 50px 0;
+    width: 103%;
+    height: 465px;
+    z-index: -1;
+  }
 `;
 
 const Images = styled.img`
   max-width: 380px;
+  width: 100%;
   height: 450px;
   object-fit: cover;
   border-radius: 50px 0;
@@ -56,6 +74,10 @@ const Images = styled.img`
 const MainTitle = styled.h1`
   font-size: 54px;
   max-width: 670px;
+
+  @media ${theme.media.mobile} {
+    font-size: 40px;
+  }
 `;
 
 const Subtitle = styled.p`

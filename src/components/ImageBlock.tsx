@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon } from "./Icon";
 import styled from "styled-components";
+import { theme } from "../styles/Theme";
 
 export const ImageBlock = () => {
   return (
@@ -21,4 +22,4 @@ export const ImageBlock = () => {
 const StyledImageBlock = styled.div`
   display: flex;
   gap: 25px;
-`
+`;

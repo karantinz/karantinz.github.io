@@ -2,6 +2,7 @@ import React from "react";
 import { FlexWrapper } from "../../components/FlexWrapper";
 import styled from "styled-components";
 import { Icon } from "../../components/Icon";
+import { theme } from "../../styles/Theme";
 
 type PropsProjectType = {
   imageUrl: string;
@@ -39,7 +40,9 @@ const StyledProject = styled.div`
 const StyledImage = styled.img`
   border-radius: inherit;
   max-width: 376px;
+  width: 100%;
   min-height: 265px;
+  object-fit: cover;
 `;
 
 const StyledTitle = styled.h3`
@@ -63,6 +66,10 @@ const StyledTitle = styled.h3`
     );
     margin-top: 20px;
   }
+
+  @media ${theme.media.mobile} {
+    font-size: 25px;
+  }
 `;
 
 const StyledText = styled.p`
@@ -70,6 +77,10 @@ const StyledText = styled.p`
   max-width: 360px;
   font-weight: 500;
   margin-right: auto;
+
+  @media ${theme.media.mobile} {
+    font-size: 16px;
+  }
 `;
 
 const StyledSubtitle = styled.span`
@@ -78,6 +89,10 @@ const StyledSubtitle = styled.span`
   color: #ccc;
   max-width: 330px;
   margin-right: auto;
+
+  @media ${theme.media.mobile} {
+    font-size: 14px;
+  }
 `;
 
 const StyledLink = styled.a`
