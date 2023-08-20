@@ -3,26 +3,29 @@ import { FlexWrapper } from "../components/FlexWrapper";
 import Man from "../assets/img/man1.webp";
 import styled from "styled-components";
 import { theme } from "../styles/Theme";
+import { Container } from "../components/Container";
 
 export const Hero = () => {
   return (
-    <SectionHero>
-      <FlexWrapper alignItems="center" justifyContent="space-between">
-        <HeroLeft>
-          <MainTitle>Lorem ipsum dolor amet</MainTitle>
+    <SectionHero id="home">
+      <Container>
+        <FlexWrapper alignItems="center" justifyContent="space-between">
+          <HeroLeft>
+            <MainTitle>Lorem ipsum dolor amet</MainTitle>
 
-          <Subtitle>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Subtitle>
+            <Subtitle>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Subtitle>
 
-          <Button>Download CV</Button>
-        </HeroLeft>
+            <Button>Download CV</Button>
+          </HeroLeft>
 
-        <ImageContainer>
-          <Images src={Man} alt="" />
-        </ImageContainer>
-      </FlexWrapper>
+          <ImageContainer>
+            <Images src={Man} alt="" />
+          </ImageContainer>
+        </FlexWrapper>
+      </Container>
     </SectionHero>
   );
 };
@@ -31,7 +34,7 @@ const SectionHero = styled.section`
   margin-bottom: 150px;
 
   @media ${theme.media.tablet} {
-    & > ${FlexWrapper} {
+    ${FlexWrapper} {
       flex-direction: column-reverse;
       gap: 20px;
     }

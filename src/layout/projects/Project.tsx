@@ -102,6 +102,7 @@ const StyledLink = styled.a`
   margin-top: 20px;
   font-size: 16px;
   font-weight: 400;
+  text-decoration: underline;
 
   color: #fff;
   text-align: center;

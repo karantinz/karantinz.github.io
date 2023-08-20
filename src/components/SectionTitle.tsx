@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../styles/Theme";
+import Typewriter from "typewriter-effect";
 
 type SectionTitleType = {
   title: string;
@@ -10,7 +11,16 @@ type SectionTitleType = {
 export const SectionTitle = (props: SectionTitleType) => {
   return (
     <StyledSection>
-      <StyledTitle>{props.title}</StyledTitle>
+      <StyledTitle>
+        <Typewriter
+          options={{
+            strings: [props.title],
+            autoStart: true,
+            loop: false,
+            deleteSpeed: Infinity,
+          }}
+        />
+      </StyledTitle>
       <StyledSubtitle>{props.subtitle}</StyledSubtitle>
     </StyledSection>
   );
@@ -37,7 +47,7 @@ const StyledTitle = styled.h2`
 const StyledSubtitle = styled.span`
   font-size: 32px;
   color: #a7a7a7;
-  
+
   @media ${theme.media.mobile} {
     font-size: 25px;
   }

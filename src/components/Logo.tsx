@@ -1,11 +1,12 @@
 import React from "react";
 import { Icon } from "./Icon";
 import styled from "styled-components";
+import { animateScroll as scroll } from "react-scroll";
 
 export const Logo = () => {
   return (
     <StyledIcon>
-      <a href="#">
+      <a onClick={scroll.scrollToTop}>
         <Icon iconId="logo" width="48px" height="48px" viewBox="0 0 48 48" />
         <span>Portfolio</span>
       </a>
@@ -21,5 +22,6 @@ const StyledIcon = styled.div`
     text-decoration: none;
     font-size: 30px;
     gap: 13px;
+    cursor: pointer;
   }
 `;

@@ -2,15 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { FlexWrapper } from "../components/FlexWrapper";
 import { theme } from "../styles/Theme";
+import { Container } from "../components/Container";
 
 export const Mail = () => {
   return (
-    <SectionMail>
-      <FlexWrapper justifyContent="center">
-        <MailTitle>
-          For any questions please mail me: <StyledSpan>mail@mail</StyledSpan>
-        </MailTitle>
-      </FlexWrapper>
+    <SectionMail id="contact">
+      <Container>
+        <FlexWrapper justifyContent="center">
+          <MailTitle>
+            For any questions please mail me: <StyledSpan>mail@mail</StyledSpan>
+          </MailTitle>
+        </FlexWrapper>
+      </Container>
     </SectionMail>
   );
 };

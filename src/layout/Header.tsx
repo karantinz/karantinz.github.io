@@ -6,39 +6,69 @@ import { FlexWrapper } from "../components/FlexWrapper";
 import styled from "styled-components";
 import { theme } from "../styles/Theme";
 import { MobileMenu } from "../components/Menu/MobileMenu";
+import { Container } from "../components/Container";
 
-const items = ["Home", "Tech Stack", "Projects", "Contact"];
+const items = [
+  {
+    title: "Tech Stack",
+    href: "skills",
+  },
+  {
+    title: "Projects",
+    href: "projects",
+  },
+  {
+    title: "Contact",
+    href: "contact",
+  },
+];
+
+const Mobileitems = [
+  {
+    title: "Home",
+    href: "home",
+  },
+  {
+    title: "Tech Stack",
+    href: "skills",
+  },
+  {
+    title: "Projects",
+    href: "projects",
+  },
+  {
+    title: "Contact",
+    href: "contact",
+  },
+];
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <Logo />
+      <Container>
+        <FlexWrapper justifyContent="space-between" alignItems="center">
+          <Logo />
 
-      <FlexWrapper gap="20px" alignItems="center">
-        <Menu menuItems={items} />
-        <MobileMenu menuItems={items} />
-        <ImageBlockWrapper>
-          <ImageBlock />
-        </ImageBlockWrapper>
-      </FlexWrapper>
+          <FlexWrapper gap="20px" alignItems="center">
+            <Menu menuItems={items} />
+            <MobileMenu menuItems={Mobileitems} />
+            <ImageBlockWrapper>
+              <ImageBlock />
+            </ImageBlockWrapper>
+          </FlexWrapper>
+        </FlexWrapper>
+      </Container>
     </StyledHeader>
   );
 };
 
 const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 50px 0;
+  padding: 50px 0;
 
   @media ${theme.media.tablet} {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 30px;
-
-    & > ${FlexWrapper} {
+    ${FlexWrapper} {
       flex-direction: column;
+      gap: 30px;
     }
   }
 `;

@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../styles/Theme";
 import { ImageBlock } from "../ImageBlock";
+import { Link } from "react-scroll";
+
+type MobileMenuType = {
+  title: string;
+  href: string;
+};
 
 type MobilePropsType = {
-  menuItems: Array<string>;
+  menuItems: Array<MobileMenuType>;
 };
 
 export const MobileMenu = (props: MobilePropsType) => {
@@ -16,12 +22,7 @@ export const MobileMenu = (props: MobilePropsType) => {
 
   return (
     <StyledMenu>
-      <BurgerMenu
-        isOpen={isOpen}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-      >
+      <BurgerMenu isOpen={isOpen} onClick={closeMenu}>
         <span></span>
       </BurgerMenu>
 
@@ -30,7 +31,9 @@ export const MobileMenu = (props: MobilePropsType) => {
           {props.menuItems.map((item, index) => {
             return (
               <li key={index}>
-                <a href="#">{item}</a>
+                <NavLink to={item.href} smooth={true}>
+                  {item.title}
+                </NavLink>
               </li>
             );
           })}
@@ -45,17 +48,14 @@ export const MobileMenu = (props: MobilePropsType) => {
 const StyledMenu = styled.nav`
   display: none;
 
-  ul {
-    li > a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 20px;
-    }
-  }
-
   @media ${theme.media.mobile} {
     display: block;
   }
+`;
+
+const NavLink = styled(Link)`
+  color: #fff;
+  font-size: 20px;
 `;
 
 const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
