@@ -3,14 +3,18 @@ import { Icon } from "../../components/Icon";
 import { FlexWrapper } from "../../components/FlexWrapper";
 import styled from "styled-components";
 
-type PropsSkillsType = {
+type SkillProps = {
   icon: string;
   title: string;
 };
 
-export const Skill = (props: PropsSkillsType) => {
+export const Skill = (props: SkillProps) => {
   return (
-    <FlexWrapper flexDirection="column" justifyContent="center" alignItems="center">
+    <FlexWrapper
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Icon
         iconId={props.icon}
         width="105px"
@@ -23,8 +27,7 @@ export const Skill = (props: PropsSkillsType) => {
   );
 };
 
-
 const SkillsSpan = styled.span`
-    display: block;
-    margin-top: 10px;
-`
+  display: block;
+  margin-top: 10px;
+`;
