@@ -1,8 +1,8 @@
 import React from 'react';
-import { Hero } from './Hero';
+import { Hero } from './hero/Hero';
 import { Skills } from './skills/Skills';
 import { Projects } from './projects/Projects';
-import { Mail } from './Mail';
+import { Mail } from './mail/Mail';
 
 
 export const Main = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionTitle } from "../../components/SectionTitle";
+import { SectionTitle } from "../../components/sectionTitle/SectionTitle";
 import { Skill } from "./Skill";
 import { FlexWrapper } from "../../components/FlexWrapper";
 import styled from "styled-components";

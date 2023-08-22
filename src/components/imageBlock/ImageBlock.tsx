@@ -1,11 +1,10 @@
 import React from "react";
-import { Icon } from "./Icon";
-import styled from "styled-components";
-import { theme } from "../styles/Theme";
+import { Icon } from "../Icon";
+import { S } from "./ImageBlock_styles";
 
 export const ImageBlock = () => {
   return (
-    <StyledImageBlock>
+    <S.ImageBlock>
       <a href="">
         <Icon iconId={"github"} />
       </a>
@@ -15,11 +14,6 @@ export const ImageBlock = () => {
       <a href="">
         <Icon iconId={"telegram"} width="38px" />
       </a>
-    </StyledImageBlock>
+    </S.ImageBlock>
   );
 };
-
-const StyledImageBlock = styled.div`
-  display: flex;
-  gap: 25px;
-`;

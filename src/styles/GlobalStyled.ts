@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { theme } from "./Theme";
 
 export const GlobalStyles = createGlobalStyle`
   *, 
@@ -12,8 +13,8 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Arial', 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'; 
-    background-color: #191919;
-    color: #fff;
+    background-color: ${theme.colors.primaryBg};
+    color: ${theme.colors.primaryTextColor};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

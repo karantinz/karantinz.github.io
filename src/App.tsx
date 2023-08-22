@@ -1,6 +1,6 @@
-import { Header } from "./layout/Header";
+import { Header } from "./layout/header/Header";
 import { Main } from "./layout/Main";
-import { Footer } from "./layout/Footer";
+import { Footer } from "./layout/footer/Footer";
 
 export function App() {
   return (

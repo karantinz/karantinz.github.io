@@ -1,61 +1,53 @@
-import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import { theme } from "../../styles/Theme";
-import { ImageBlock } from "../ImageBlock";
 import { Link } from "react-scroll";
+import { theme } from "../../styles/Theme";
 
-type MobileMenuType = {
-  title: string;
-  href: string;
-};
-
-type MobilePropsType = {
-  menuItems: Array<MobileMenuType>;
-};
-
-export const MobileMenu = (props: MobilePropsType) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const closeMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <StyledMenu>
-      <BurgerMenu isOpen={isOpen} onClick={closeMenu}>
-        <span></span>
-      </BurgerMenu>
-
-      <MobileMenuPopup isOpen={isOpen} onClick={closeMenu}>
-        <ul>
-          {props.menuItems.map((item, index) => {
-            return (
-              <li key={index}>
-                <NavLink to={item.href} smooth={true}>
-                  {item.title}
-                </NavLink>
-              </li>
-            );
-          })}
-        </ul>
-
-        <ImageBlock />
-      </MobileMenuPopup>
-    </StyledMenu>
-  );
-};
-
-const StyledMenu = styled.nav`
-  display: none;
+const NavMenu = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 40px;
 
   @media ${theme.media.mobile} {
     display: block;
   }
 `;
 
-const NavLink = styled(Link)`
+const MenuWrapper = styled.ul`
+  display: flex;
+  gap: 50px;
+
+  @media ${theme.media.mobile} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+`;
+
+const MenuLink = styled(Link)`
+  position: relative;
   color: #fff;
   font-size: 20px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
 `;
 
 const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
@@ -66,7 +58,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   bottom: 0;
   z-index: 10;
   display: none;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
 
   ${(props) =>
     props.isOpen &&
@@ -77,14 +69,6 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
       justify-content: center;
       align-items: center;
     `}
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-  }
 `;
 
 const BurgerMenu = styled.button<{ isOpen: boolean }>`
@@ -148,3 +132,11 @@ const BurgerMenu = styled.button<{ isOpen: boolean }>`
     }
   }
 `;
+
+export const S = {
+  MenuLink,
+  NavMenu,
+  MobileMenuPopup,
+  BurgerMenu,
+  MenuWrapper,
+};
